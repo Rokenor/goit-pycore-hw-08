@@ -134,17 +134,17 @@ def parse_input(user_input):
     return cmd, *args
 
 def save_data(book, filename="addressbook.pkl"):
-    print('Saving data...')
+    print('Saving book...')
     with open(filename, "wb") as f:
         pickle.dump(book, f)
-    print('Data saved.')
+    print('Book saved.')
 
 @book_load_error
 def load_data(filename="addressbook.pkl"):
-    print('Loading data...')
+    print('Loading book...')
     with open(filename, "rb") as f:
         data = pickle.load(f)
-        print('Data loaded successfully.')
+        print('Book loaded successfully.')
         return data
     
 def main():
