@@ -142,17 +142,10 @@ def save_data(book, filename="addressbook.pkl"):
 @book_load_error
 def load_data(filename="addressbook.pkl"):
     print('Loading data...')
-    try:
-        with open(filename, "rb") as f:
-            data = pickle.load(f)
-            print('Data loaded successfully.')
-            return data
-    except FileNotFoundError:
-        print("No saved data found. Starting with an empty address book.")
-        return AddressBook()
-    except Exception as e:
-        print(f"Error loading data: {e}. Starting with an empty address book.")
-        return AddressBook()
+    with open(filename, "rb") as f:
+        data = pickle.load(f)
+        print('Data loaded successfully.')
+        return data
     
 def main():
     book = load_data()
